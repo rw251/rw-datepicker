@@ -1,5 +1,5 @@
 {
-  "name": "rw-datepicker",
+  "name": "rw-picker",
   "version": "0.0.1",
   "description": "Pure JavaScript date picker",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rw251/rw-datepicker.git"
+    "url": "git+https://github.com/rw251/rw-picker.git"
   },
   "keywords": [
     "datepicker",
@@ -18,9 +18,9 @@
   "author": "Richard Williams <1234richardwilliams@gmail.com> (https://rw251.github.io)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rw251/rw-datepicker/issues"
+    "url": "https://github.com/rw251/rw-picker/issues"
   },
-  "homepage": "https://github.com/rw251/rw-datepicker#readme",
+  "homepage": "https://github.com/rw251/rw-picker#readme",
   "devDependencies": {
     "babel-istanbul": "^0.12.2",
     "babel-preset-env": "^1.7.0",

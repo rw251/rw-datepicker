@@ -1,8 +1,8 @@
-# rw-datepicker
+# rw-picker
 
-[![Build Status](https://travis-ci.org/rw251/rw-datepicker.svg?branch=master)](https://travis-ci.org/rw251/rw-datepicker)
-[![Coverage Status](https://coveralls.io/repos/github/rw251/rw-datepicker/badge.svg?branch=master)](https://coveralls.io/github/rw251/rw-datepicker?branch=master)
-[![Known Vulnerabilities](https://snyk.io/test/github/rw251/rw-datepicker/badge.svg)](https://snyk.io/test/github/rw251/rw-datepicker)
+[![Build Status](https://travis-ci.org/rw251/rw-picker.svg?branch=master)](https://travis-ci.org/rw251/rw-picker)
+[![Coverage Status](https://coveralls.io/repos/github/rw251/rw-picker/badge.svg?branch=master)](https://coveralls.io/github/rw251/rw-picker?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/github/rw251/rw-picker/badge.svg)](https://snyk.io/test/github/rw251/rw-picker)
 
 Minimalistic datepicker forked (nicked) from https://github.com/yogasaikrishna/foopicker
 
@@ -15,7 +15,7 @@ Minimalistic datepicker forked (nicked) from https://github.com/yogasaikrishna/f
 ## Usage
 
 ```
-npm install --save rw-datepicker
+npm install --save rw-picker
 ```
 
 index.html
@@ -25,7 +25,7 @@ index.html
 
 script.js
 ```js
-import {DatePicker} from 'rw-datepicker'
+import {DatePicker} from 'rw-picker'
 var myDatepicker = new DatePicker({
   id: 'datepicker'
 });
