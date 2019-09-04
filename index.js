@@ -268,16 +268,16 @@ const Calendar = {
 
   // Build calendar header
   buildHeader() {
-    return `${'<div class="foopicker__header">'
-      + '<div class="foopicker__arrow foopicker__arrow--prev"></div>'
-      + '<div class="foopicker__date">'}${this.buildMonths()
+    return `${'<div class="rw-picker__header">'
+      + '<div class="rw-picker__arrow rw-picker__arrow--prev"></div>'
+      + '<div class="rw-picker__date">'}${this.buildMonths()
     }&nbsp;&nbsp;${this.buildYears()}</div>`
-      + '<div class="foopicker__arrow foopicker__arrow--next"></div></div>';
+      + '<div class="rw-picker__arrow rw-picker__arrow--next"></div></div>';
   },
 
   // Build months select
   buildMonths() {
-    let elem = '<select class="foopicker__date--month">'; const
+    let elem = '<select class="rw-picker__date--month">'; const
       month = this.month();
     for (let i = 0; i < months.length; i += 1) {
       elem += `<option value="${i}"`;
@@ -292,7 +292,7 @@ const Calendar = {
 
   // Build years select
   buildYears() {
-    let elem = '<select class="foopicker__date--year">'; const
+    let elem = '<select class="rw-picker__date--year">'; const
       currentYear = this.getCurrentYear();
     const year = this.year();
     for (let i = year - 20; i <= currentYear + 5; i += 1) {
@@ -310,9 +310,9 @@ const Calendar = {
   buildCalendar() {
     let index;
     const daysInMonth = getDaysInMonth(this.year(), this.month());
-    let template = '<div class="foopicker__calendar"><table><tr>';
+    let template = '<div class="rw-picker__calendar"><table><tr>';
     for (index = 0; index < weeks.length; index += 1) {
-      template += `<td><div class="foopicker__week">${weeks[index]}</div></td>`;
+      template += `<td><div class="rw-picker__week">${weeks[index]}</div></td>`;
     }
     template += '</tr><tr>';
     let columnIndex = 0; let
@@ -322,8 +322,8 @@ const Calendar = {
       if (day < 0) {
         template += '<td></td>';
       } else {
-        dayClass = day === (this.today() - 1) ? 'foopicker__day--today' : '';
-        template += `<td><div class="foopicker__day ${dayClass}" `;
+        dayClass = day === (this.today() - 1) ? 'rw-picker__day--today' : '';
+        template += `<td><div class="rw-picker__day ${dayClass}" `;
         template += `data-day="${day + 1}" data-month="${this.month() + 1}`;
         template += `" data-year="${this.year()}" `;
         template += `>${day + 1}</div></td>`;
@@ -341,15 +341,15 @@ const Calendar = {
   // Header click listeners
   addListeners(instance) {
     const { id } = instance.options;
-    const pickerDiv = document.getElementById(`foopicker-${id}`);
+    const pickerDiv = document.getElementById(`rw-picker-${id}`);
     if (pickerDiv) {
-      const prevBtn = pickerDiv.getElementsByClassName('foopicker__arrow--prev')[0];
-      const nextBtn = pickerDiv.getElementsByClassName('foopicker__arrow--next')[0];
+      const prevBtn = pickerDiv.getElementsByClassName('rw-picker__arrow--prev')[0];
+      const nextBtn = pickerDiv.getElementsByClassName('rw-picker__arrow--next')[0];
       addEvent(prevBtn, 'click', instance.changeMonth, false);
       addEvent(nextBtn, 'click', instance.changeMonth, false);
 
-      const monthSelect = pickerDiv.getElementsByClassName('foopicker__date--month')[0];
-      const yearSelect = pickerDiv.getElementsByClassName('foopicker__date--year')[0];
+      const monthSelect = pickerDiv.getElementsByClassName('rw-picker__date--month')[0];
+      const yearSelect = pickerDiv.getElementsByClassName('rw-picker__date--year')[0];
 
       // add event listener for month change
       addEvent(monthSelect, 'change', this.handleMonthChange.bind(null, instance), false);
@@ -361,12 +361,12 @@ const Calendar = {
     this.changeInstanceDate(instance);
     this.modifyDateClass(instance);
 
-    const el = pickerDiv.getElementsByClassName('foopicker__day');
+    const el = pickerDiv.getElementsByClassName('rw-picker__day');
     if (el && el.length) {
       for (let count = 0; count < el.length; count += 1) {
         if (typeof el[count].onclick !== 'function') {
-          if (el[count].className && el[count].className.indexOf('foopicker__day--disabled') === -1) {
-            const elem = document.getElementById(`${id}-foopicker__day--${count + 1}`);
+          if (el[count].className && el[count].className.indexOf('rw-picker__day--disabled') === -1) {
+            const elem = document.getElementById(`${id}-rw-picker__day--${count + 1}`);
             addEvent(elem, 'click', instance.selectDate, false);
           }
         }
@@ -384,10 +384,10 @@ const Calendar = {
 
   removeListeners(instance) {
     const { id } = instance.options;
-    const pickerDiv = document.getElementById(`foopicker-${id}`);
+    const pickerDiv = document.getElementById(`rw-picker-${id}`);
     if (pickerDiv) {
-      const monthSelect = pickerDiv.getElementsByClassName('foopicker__date--month')[0];
-      const yearSelect = pickerDiv.getElementsByClassName('foopicker__date--year')[0];
+      const monthSelect = pickerDiv.getElementsByClassName('rw-picker__date--month')[0];
+      const yearSelect = pickerDiv.getElementsByClassName('rw-picker__date--year')[0];
 
       monthSelect.removeEventListener('change', this.handleMonthChange, false);
       yearSelect.removeEventListener('change', this.handleYearChange, false);
@@ -400,27 +400,27 @@ const Calendar = {
     const date = new Date();
     const month = date.getMonth(); const year = date.getFullYear(); let
       dayClass;
-    const pickerDiv = document.getElementById(`foopicker-${id}`);
+    const pickerDiv = document.getElementById(`rw-picker-${id}`);
     if (pickerDiv) {
-      const el = pickerDiv.getElementsByClassName('foopicker__day');
+      const el = pickerDiv.getElementsByClassName('rw-picker__day');
       if (el && el.length) {
         for (let count = 0; count < el.length; count += 1) {
           disabled = '';
           currentDate = format(instance, el[count].dataset.day, el[count].dataset.month,
             el[count].dataset.year);
           if (instance.options.disable && instance.options.disable.indexOf(currentDate) !== -1) {
-            disabled = 'foopicker__day--disabled';
+            disabled = 'rw-picker__day--disabled';
           }
 
-          el[count].className = 'foopicker__day';
+          el[count].className = 'rw-picker__day';
           if ((count + 1) === day && this.month() === instance.selectedMonth - 1
             && this.year() === instance.selectedYear) {
-            el[count].className += `${' foopicker__day--selected '}${disabled}`;
+            el[count].className += `${' rw-picker__day--selected '}${disabled}`;
           } else {
             if (el[count].dataset.day === this.today()
               && month === this.month()
               && year === this.year()) {
-              dayClass = ' foopicker__day--today';
+              dayClass = ' rw-picker__day--today';
             } else {
               dayClass = '';
             }
@@ -428,9 +428,9 @@ const Calendar = {
           }
 
           if ((count + 1) === date.getDate() && this.month() === month && this.year() === year) {
-            el[count].classList.add('foopicker__day--today');
+            el[count].classList.add('rw-picker__day--today');
           }
-          el[count].id = `${id}-foopicker__day--${count + 1}`;
+          el[count].id = `${id}-rw-picker__day--${count + 1}`;
         }
       }
     }
@@ -453,14 +453,14 @@ function addListeners(picker) {
   }
 }
 
-// Check if foopicker is already built and added to DOM
+// Check if rw-picker is already built and added to DOM
 function hasPicker(el) {
-  return !!(el && el.querySelector('.foopicker'));
+  return !!(el && el.querySelector('.rw-picker'));
 }
 
 exports.DatePicker = (options) => {
   let defaults = {
-    className: 'foopicker',
+    className: 'rw-picker',
     dateFormat: 'dd-MMM-yyyy',
     disable: [],
   };
@@ -478,7 +478,7 @@ exports.DatePicker = (options) => {
     showPicker() {
       picker.buildPicker();
       const pickerField = document.getElementById(picker.options.id);
-      const pickerDiv = document.getElementById(`foopicker-${picker.options.id}`);
+      const pickerDiv = document.getElementById(`rw-picker-${picker.options.id}`);
       if (pickerField) {
         const datepicker = pickerField.getBoundingClientRect();
         const { left } = datepicker;
@@ -499,7 +499,7 @@ exports.DatePicker = (options) => {
           pickerField;
         if (!picker.monthChange && !picker.isPickerClicked) {
           picker.removeListeners(picker.options.id);
-          pickerDiv = document.getElementById(`foopicker-${picker.options.id}`);
+          pickerDiv = document.getElementById(`rw-picker-${picker.options.id}`);
           pickerDiv.removeEventListener('click', picker.handlePickerClick, false);
           if (pickerDiv) {
             pickerDiv.innerHTML = '';
@@ -558,7 +558,7 @@ exports.DatePicker = (options) => {
       const el = document.getElementById(event.target.id);
       const pickerField = document.getElementById(picker.options.id);
       if (el) {
-        el.classList.add('foopicker__day--selected');
+        el.classList.add('rw-picker__day--selected');
         const date = format(picker, el.dataset.day, el.dataset.month, el.dataset.year);
         picker.setSelected(
           date,
@@ -587,11 +587,11 @@ exports.DatePicker = (options) => {
     removeListeners(id) {
       const pickerEl = document.getElementById(id);
       if (pickerEl) {
-        const el = pickerEl.getElementsByClassName('foopicker__day');
+        const el = pickerEl.getElementsByClassName('rw-picker__day');
         if (el && el.length) {
           for (let count = 0; count < el.length; count += 1) {
             if (typeof el[count].onclick === 'function') {
-              const elem = document.getElementById(`${id}-foopicker__day--${count + 1}`);
+              const elem = document.getElementById(`${id}-rw-picker__day--${count + 1}`);
               removeEvent(elem, 'click', picker.selectDate, false);
             }
           }
@@ -606,7 +606,7 @@ exports.DatePicker = (options) => {
     changeMonth(event) {
       const { className } = event.target; let
         positive = false;
-      if (className.indexOf('foopicker__arrow--next') !== -1) {
+      if (className.indexOf('rw-picker__arrow--next') !== -1) {
         positive = true;
       }
       const month = positive ? picker.currentMonth + 1 : picker.currentMonth - 1;
@@ -619,9 +619,9 @@ exports.DatePicker = (options) => {
       const year = newYear || picker.currentYear;
       picker.currentMonth = newMonth;
       Calendar.date = new Date(year, newMonth, day);
-      const pickerDiv = document.getElementById(`foopicker-${picker.options.id}`);
+      const pickerDiv = document.getElementById(`rw-picker-${picker.options.id}`);
       if (pickerDiv) {
-        const datepicker = pickerDiv.querySelector('.foopicker');
+        const datepicker = pickerDiv.querySelector('.rw-picker');
         datepicker.innerHTML = Calendar.buildHeader() + Calendar.buildCalendar();
         picker.isPickerClicked = false;
         Calendar.removeListeners(picker);
@@ -630,7 +630,7 @@ exports.DatePicker = (options) => {
     },
 
     buildPicker() {
-      const pickerDiv = document.getElementById(`foopicker-${picker.options.id}`);
+      const pickerDiv = document.getElementById(`rw-picker-${picker.options.id}`);
       if (pickerDiv && !hasPicker(pickerDiv)) {
         const fragment = document.createDocumentFragment();
         const datepicker = document.createElement('div');
@@ -667,7 +667,7 @@ exports.DatePicker = (options) => {
 
     handleDocumentClick(event) {
       const pickerField = document.getElementById(picker.options.id);
-      const pickerDiv = document.getElementById(`foopicker-${picker.options.id}`);
+      const pickerDiv = document.getElementById(`rw-picker-${picker.options.id}`);
       picker.isPickerClicked = false;
       picker.monthChange = false;
       if (event.target !== pickerField && event.target !== pickerDiv) {
@@ -677,14 +677,14 @@ exports.DatePicker = (options) => {
 
     buildTemplate() {
       const pickerDiv = document.createElement('div');
-      pickerDiv.id = `foopicker-${picker.options.id}`;
+      pickerDiv.id = `rw-picker-${picker.options.id}`;
       document.body.appendChild(pickerDiv);
       addListeners(picker);
       picker.setInitialValue();
     },
 
     destroy() {
-      const pickerDiv = document.getElementById(`foopicker-${picker.options.id}`);
+      const pickerDiv = document.getElementById(`rw-picker-${picker.options.id}`);
       if (pickerDiv) {
         document.body.removeChild(pickerDiv);
       }

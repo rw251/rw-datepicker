@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600);
-.foopicker {
+.rw-picker {
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -10,21 +10,21 @@
   width: 245px;
 }
 
-.foopicker table {
+.rw-picker table {
   width: 100%;
 }
 
-.foopicker th,
-.foopicker td {
+.rw-picker th,
+.rw-picker td {
   text-align: center;
 }
 
-.foopicker__calendar {
+.rw-picker__calendar {
   font-size: 13px;
   padding: 5px;
 }
 
-.foopicker__day {
+.rw-picker__day {
   border-radius: 100%;
   cursor: pointer;
   padding: 5px 2px;
@@ -32,48 +32,48 @@
   width: 22px;
 }
 
-.foopicker__day:hover {
+.rw-picker__day:hover {
   background: #1fbad6;
   color: #fff;
 }
 
-.foopicker__day--today {
+.rw-picker__day--today {
   background: #e0f6fb;
   color: #666;
 }
 
-.foopicker__day--selected {
+.rw-picker__day--selected {
   background: #1fbad6;
   color: #fff;
 }
 
-.foopicker__day--disabled {
+.rw-picker__day--disabled {
   background: #e6e6e6;
   color: #bfbfbf;
   cursor: not-allowed;
 }
 
-.foopicker__day--disabled:hover {
+.rw-picker__day--disabled:hover {
   background: #e6e6e6;
   color: #bfbfbf;
 }
 
-.foopicker__week {
+.rw-picker__week {
   font-size: 1em;
   font-weight: 600;
 }
 
-.foopicker__header {
+.rw-picker__header {
   background: #f2f2f4;
   padding: 15px;
   text-align: center;
 }
 
-.foopicker__header div {
+.rw-picker__header div {
   display: inline-block;
 }
 
-.foopicker__arrow {
+.rw-picker__arrow {
   background-repeat: no-repeat;
   cursor: pointer;
   height: 24px;
@@ -87,24 +87,24 @@
   width: 14px;
 }
 
-.foopicker__arrow--next {
+.rw-picker__arrow--next {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAMCAYAAACulacQAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN5wAADecBmRSqJgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADWSURBVBiVfY8xSkNBFEXPe0njxGB24R4srM1YjFhMGYjYuRxLMWI7lZ8EDAqKiN8mC7B2BULMiPh/noUYvoW57Tncy5Xx+OZZhFfVauC9/6QRFeEFiMtl6yqlcuMPzPntGLgE2XPufZrS/eYKxhjr2aw8EuEC2HXu67ooii6A/FpmJpPJ7akIJ0CpWvWludEUzLhT1uS/2ifVygtASqnV6fTOzBiCPNZ13g8hzPUHbI3MGIrwkHPbhxDmAG3neudmDMCmi0X3MMadj9VPM7aBpFofNAHAN0NkW9nLdIQRAAAAAElFTkSuQmCC);
   right: 14px;
 }
 
-.foopicker__arrow--prev {
+.rw-picker__arrow--prev {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAMCAYAAACulacQAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN5wAADecBmRSqJgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADXSURBVBiVXZAxTsNAFETfmMRWvL4C3GVRIlFElFRYHABxB1+CBlFEFBFsgQJrWTIIQRWq9NyDLrG8FGDkeNqn+TPzxUBVVSVtO7oLgaOoD5xbT9r2YAWcSXypA977VIqfQFPg3phxHgHUdW0g8aBpCGFpzDi31jaRc+/ZbqdS4jgEbjebz9xa2wDI+5e3P3A9n8+uJIUuaq/QUFEch1PgQ+KyLF9viqL4N6grtN3q+fd8WGZZfGGtbQZTkhUwk/SQpqNz9TOcW0/S9PsRdAIs9mD/fRAOfwCC1k8eHoJobwAAAABJRU5ErkJggg==);
   left: 18px;
 }
 
-.foopicker__month {
+.rw-picker__month {
   font-size: .875em;
   font-weight: 600;
   text-transform: uppercase;
 }
 
-.foopicker__date--month,
-.foopicker__date--year {
+.rw-picker__date--month,
+.rw-picker__date--year {
   background: none;
   border: 0;
   color: #666;
