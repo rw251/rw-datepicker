@@ -195,7 +195,7 @@ function parse(instance, value) {
 
 // Extend default options
 function extendOptions(defaults, options) {
-  options.keys.forEach((key) => {
+  Object.keys(options).forEach((key) => {
     defaults[key] = options[key];
   });
   return defaults;
