@@ -1,35 +1,33 @@
-# FooPicker
+# rw-datepicker
+
+[![Build Status](https://travis-ci.org/rw251/rw-datepicker.svg?branch=master)](https://travis-ci.org/rw251/rw-datepicker)
+[![Coverage Status](https://coveralls.io/repos/github/rw251/rw-datepicker/badge.svg?branch=master)](https://coveralls.io/github/rw251/rw-datepicker?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/github/rw251/rw-datepicker/badge.svg)](https://snyk.io/test/github/rw251/rw-datepicker)
+
+Minimalistic datepicker forked (nicked) from https://github.com/yogasaikrishna/foopicker
+
 
 ### Pure JavaScript Datepicker
 
 * Lightweight (6.2KB minified)
 * Zero dependencies
 
-![FooPicker Screenshot](http://www.yogasaikrishna.com/wp-content/uploads/2015/11/foopicker_screenshot.png)
-
-## Instructions
-
-### Bower
+## Usage
 
 ```
-bower install foopicker
+npm install --save rw-datepicker
 ```
 
-### Other
-
-Download the latest code and include both **foopicker.css** and **foopicker.js** in your page and then bind foopicker to an input field
-
+index.html
 ```html
 <input type="text" id="datepicker">
 ```
 
-Add the following JavaScript code before closing the body tag
-
-```html
-<script>
-  var foopicker = new FooPicker({
-    id: 'datepicker'
-  });
-</script>
+script.js
+```js
+import {DatePicker} from 'rw-datepicker'
+var myDatepicker = new DatePicker({
+  id: 'datepicker'
+});
 ```
 

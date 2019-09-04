@@ -1,28 +1,42 @@
 {
-  "name": "foopicker",
-  "version": "0.3.3",
+  "name": "rw-datepicker",
+  "version": "0.0.1",
   "description": "Pure JavaScript date picker",
-  "main": "foopicker.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require babel-register --reporter spec",
+    "cover": "nyc --reporter=lcov node_modules/mocha/bin/_mocha --require babel-register -R spec test/*"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yogasaikrishna/foopicker.git"
+    "url": "git+https://github.com/rw251/rw-datepicker.git"
   },
   "keywords": [
     "datepicker",
     "calendar"
   ],
-  "author": "Yogasaikrishna",
+  "author": "Richard Williams <1234richardwilliams@gmail.com> (https://rw251.github.io)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yogasaikrishna/foopicker/issues"
+    "url": "https://github.com/rw251/rw-datepicker/issues"
   },
-  "homepage": "https://github.com/yogasaikrishna/foopicker#readme",
+  "homepage": "https://github.com/rw251/rw-datepicker#readme",
   "devDependencies": {
+    "babel-istanbul": "^0.12.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
     "browser-sync": "^2.10.0",
-    "gulp": "^3.9.0",
-    "gulp-minify-css": "^1.2.1",
-    "gulp-sass": "^2.1.0",
-    "gulp-uglify": "^1.5.1",
-    "mocha": "^2.3.4"
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.6",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "istanbul": "^0.4.5",
+    "jsdom": "^15.1.1",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^2.5.3",
+    "nyc": "^14.1.1",
+    "sinon": "^7.4.2",
+    "sinon-chai": "^3.3.0"
   }
 }
