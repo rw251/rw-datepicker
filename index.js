@@ -533,22 +533,20 @@ exports.DatePicker = (options) => {
       let date;
       if (pickerField && pickerField.value && pickerField.value.length >= 10) {
         date = parse(picker, pickerField.value);
-
-        picker.setSelected(
-          format(
-            picker,
-            date.getDate(),
-            date.getMonth() + 1,
-            date.getFullYear()
-          ),
+      } else {
+        date = new Date();
+      }
+      picker.setSelected(
+        format(
+          picker,
           date.getDate(),
           date.getMonth() + 1,
           date.getFullYear()
-        );
-      } else {
-        picker.setSelected();
-        date = new Date();
-      }
+        ),
+        date.getDate(),
+        date.getMonth() + 1,
+        date.getFullYear()
+      );
       return date;
     },
 

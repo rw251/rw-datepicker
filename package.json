@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --require babel-register --reporter spec",
+    "test-live": "mocha --watch --require babel-register --reporter spec",
     "cover": "nyc --reporter=lcov node_modules/mocha/bin/_mocha --require babel-register -R spec test/*"
   },
   "repository": {
